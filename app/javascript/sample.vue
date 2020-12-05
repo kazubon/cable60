@@ -15,6 +15,7 @@
 
 <script>
 import Axios from 'axios'
+import cableData from "./channels/cable_data"
 
 export default {
   data() {
@@ -23,14 +24,15 @@ export default {
   },
   computed: {
     progress() {
-      return 0;
+      return cableData.sample.progress || 0;
     },
     processing() {
-      return false;
+      return cableData.sample.processing;
     }
   },
   methods: {
     startProcess() {
+      cableData.sample = { progress: 0, processing: true };
       Axios.patch('/sample');
     }
   }

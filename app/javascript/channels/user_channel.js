@@ -1,15 +1,22 @@
 import consumer from "./consumer"
+import cableData from "./cable_data";
 
 consumer.subscriptions.create("UserChannel", {
   connected() {
-    // Called when the subscription is ready for use on the server
   },
 
   disconnected() {
-    // Called when the subscription has been terminated by the server
   },
 
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
+    switch(data.type) {
+      case 'sample':
+        cableData.sample = data;
+        break;
+      // case 'foo':
+      //   cableData.foo = data;
+      // case 'bar':
+      //   cableData.bar = data;
+    }
   }
 });

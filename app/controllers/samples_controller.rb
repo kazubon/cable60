@@ -3,6 +3,7 @@ class SamplesController < ApplicationController
   end
 
   def update
+    SampleJob.perform_later(cookies.signed[:cable_code])
     render json: {}
   end
 end
