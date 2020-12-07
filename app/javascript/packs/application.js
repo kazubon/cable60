@@ -15,7 +15,7 @@ import '../axios_config';
 Vue.use(TurbolinksAdapter);
 
 document.addEventListener('turbolinks:load', () => {
-  if($('#sample').length) {
+  if(document.getElementById('sample')) {
     new Vue(Sample).$mount('#sample');
   }
 });

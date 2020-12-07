@@ -15,8 +15,10 @@ consumer.subscriptions.create("UserChannel", {
         break;
       // case 'foo':
       //   cableData.foo = data;
+      //   break;
       // case 'bar':
       //   cableData.bar = data;
+      //   break;
     }
   }
 });
